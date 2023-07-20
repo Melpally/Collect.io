@@ -1,0 +1,55 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Welcome to Collect.io, one location for your collection.</p>
+</div>
+ <div>
+    <h1>Tags cloud</h1>
+    <div class="">
+        @for (int i = 0; i < @Model.Tags.Count; i++)
+        {
+            <a class="btn btn-outline-primary btn-rounded" data-mdb-ripple-color="dark" href="#" role="button">@Model.Tags[i];</a>
+
+        }
+    </div>
+    <h1>Largest collections</h1>
+        <div class="collections-cont">
+        
+            @for (int i = 0; i < @Model.Collections.Count; i++)
+            {
+            <div class="card text-center">
+                <div class="card-header">Topic: @Model.Collections[i].Topic</div>
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Collections[i].Title</h5>
+                    <p class="card-text">@Model.Collections[i].Description</p>
+                    <a href="#" class="btn btn-primary">See more</a>
+                </div>
+                <div class="card-footer text-muted">Number of items: @Model.CollectionFrequency[i]</div>
+            </div>
+            }
+            
+        </div>
+    <h1>Latest items</h1>
+    <div class="collections-cont">
+        @for (int i = 0; i < @Model.LatestItems.Count; i++)
+        {
+            <div class="card text-center">
+                <div class="card-header">Tags: <a href="">@Model.LatestItems[i].Tags</a></div>
+                <div class="card-body">
+                    <h5 class="card-title">@Model.LatestItems[i].Name</h5>
+                    
+                </div>
+                <div class="card-footer text-muted">@Model.LatestItems[i].Date</div>
+            </div>
+        }
+
+    </div> 
+    
+    </div>
+    
+    
